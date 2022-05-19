@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="index.css">
+    
+    <title>Scientific Selecting</title>
+</head >
+<body style="background-color: #B1D0E0;">
+    <section class="vh-100" style="background-color: #B1D0E0;">
+        <div class="container py-5 h-100 ">
+
+         
+          
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <form action="/admin/top-admin/scientific-committees/add-scommittee" method="post">
+              <div class="col col-xl-10">
+                <div class="pagetitle">
+                  <h4 class="fw-normal mb-3 pb-3" style="letter-spacing:1px ; "><b> Add new Scientific Committee</b></h4>
+                </div>
+                <div class="card" style="border-radius: 1rem;">
+                  <table class="table" >
+                      <thead>
+                        <tr>
+                          <th scope="col"> </th>
+                          <th scope="col">No. </th>
+                          <th scope="col">Selecting</th>
+                          <th scope="col" class="name-row">Full Name</th>
+                          <th scope="col" class="email-row">Email</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+ 
+                          <% sCommitte.forEach((lecturer,index) => { %>
+                           
+                            <tr>
+                              <th scope="row" > </th>
+                              <td><%= ++index %></td>
+                              <td>
+                              <div >
+                                  <input class="form-check-input check" type="checkbox" id="checkboxNoLabel" value="<%= lecturer.id %>" name="lecturer" />
+                                </div>
+                              </td>
+                              <td><%= lecturer.fullName %></td>
+                              <td><%= lecturer.email %></td>
+                            </tr>
+                        <% }); %> 
+
+                      </tbody> 
+                    </table> 
+                </div>
+
+                <button class="btn btn-primary btncolor " style="margin-top: 3rem;" type="submit">Add</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

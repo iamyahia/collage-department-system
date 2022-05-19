@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <%- include('../partials/head.ejs') %>
+   
+<body> 
+    
+
+    <div class="home"> 
+        <h1>student dashboard</h1>
+        <a href="/logout">Logout</a>
+         
+    </div>
+    <div class="form" >
+        <form action="/student/teamMember" method="post"> 
+            <div class="form-check">
+
+                <div style="display: flex;">
+                    <p>full name</p>
+                    <p style="margin-left: 20px;">emai</p>
+                </div>
+                <div> 
+                    <% studentData.forEach((student,index) => { %>
+
+                      
+
+                        <tr>
+                          <th scope="row" > </th>
+                          <td><%= index %></td>
+                         
+
+
+                          <% if( teamMemberId[index] === student.id){ %>
+                            <p>Super Admin</p>
+                            <td>
+                                <div>
+                                    <input disabled class="form-check-input check" type="checkbox" id="checkboxNoLabel" name="studentId" value="<%= student.id %>" aria-label="..." />
+                                  </div>
+                                </td>
+                            <td class="text-secondary""><%= student.fullName %></td>
+                          <td disabled >
+                            <p style="color: aqua;">hii</p>
+                              
+                            </td>
+                        <% } else{ %>
+                            <p>Admin</p>
+                        <% } %> 
+
+
+                          
+                        </tr>
+                      <% }); %> 
+                      <!--  -->
+
+                </div>  
+              </div> 
+            <button type="submit">submit</button>
+        </form>  
+    </div>
+</body>
+</html>

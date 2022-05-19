@@ -1,0 +1,113 @@
+.btncolor{
+   background-color: #64869e;
+   padding: .5rem 1rem;
+   font-size: large;
+   border: none;
+}
+
+.btncolor:hover{
+    background-color: #7b98a7;
+   border: none;
+   color: rgb(97, 97, 97);
+}
+
+body{
+    font-size: larger;
+}
+
+.admin{
+        height: 100% !important;
+    
+}
+
+.seloption{
+    color: gray !important;
+}
+
+.check{
+    text-align: center;
+    /* center checkbox horizontally */
+    vertical-align: middle;
+    /* center checkbox vertically */
+}
+
+.fix{
+    position: fixed !important;
+}
+
+.rowstl{
+  background-color: white;
+  padding: 2rem   ;
+}
+.pagetitle{
+    margin-top: -2rem;
+    width: 100%;
+    text-align: center;
+}
+.icon{
+    width: 15% !important;
+}
+.bin{
+    margin: auto 1.5rem;
+}
+.adminentering{
+    background-color: white;
+    margin-bottom: .8rem;
+    border-color: black;
+    color: black;
+    padding: auto;
+}
+
+.adminentering:hover{
+    background-color: #7b98a7;
+   border: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+}
+
+
+.name-row{
+    width: 23% !important;
+}
+.email-row{
+    width: 37% !important;
+}
+.inputbox{
+    border: none;
+    outline: none;
+}
+
+.custom-search {
+    position: relative;
+    width: 100%;
+  }
+  .custom-search-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 20px 10px 20px; 
+    line-height: 1;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .custom-search-botton {
+    position: absolute;
+    right: 3px; 
+    top: 3px;
+    bottom: 3px;
+    border: 0;
+    background: white;
+    outline: none;
+    margin: 0;
+    padding: 0 -100px;
+    border-radius: 6px;
+    z-index: 2;
+  }
+
+  .containerr
+   {  width:auto; height: 400px; overflow-y: scroll;}

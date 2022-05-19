@@ -1,0 +1,11 @@
+GET http://127.0.0.1:5000/project/jwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTA5OTEwNDB9.1GlCaXzcFCGJo2DmjXcCnx_l_ltlha6z7TLf3FiNKfE
+###
+
+POST http://127.0.0.1:5000/admin/top-admin/add-top-admin
+Content-Type: : application/json;
+{
+    "fullName":"hasan a test",
+    "email":"hasanalan567@gmail.com",
+    "password":"123" 
+}
