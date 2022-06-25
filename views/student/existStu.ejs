@@ -84,7 +84,11 @@
       
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
-          <% if(sortedCollection.length != 0) {%>
+          
+          <div>
+            <h5 style="padding: 1rem;background: #008000;color: white;border-radius: 2rem;"> Status: Accepted </h5>
+          </div>
+          <% if(isConProject) {%>
             <!-- <div>
               <h5 style="padding: 1rem;background: #008000;color: white;border-radius: 2rem;"> Status: Accepted </h5>
             </div> -->
@@ -135,7 +139,7 @@
                       <th scope="row" > </th>
                       <td>
                           <div  id="box" class="parent rowstl" >
-                              <div class="header">
+                             <div class="header">
                                   <div class="name"  >
                                     You haven't selected your project. Please <a href="/project/sorting-project" style="color: rgb(0, 166, 255);">click here</a> to sort your project
                           </div>

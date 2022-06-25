@@ -6,8 +6,8 @@ const router = express.Router();
 
 //  !models
 const Projects = require("../models/project");
-const ConSortingProject = require("../models/conditional-sorting-projects");
 const Student = require("../models/student");
+const Team = require("../models/team");
 
 router.get("/sorting-project", async (req, res) => {
   await Projects.find()
@@ -25,36 +25,69 @@ router.get("/sorting-project", async (req, res) => {
       });
     });
 });
+
+//TODO: when user list their project, update those part: 1) student -> teamMembers -> conStProject .  2) team -> conProject
 router.post("/sorting-project", async (req, res) => {
-  console.log(req.body.projectAuthor);
+  // console.log(req.body.projectAuthor);
 
   const currentUser = req.cookies.student; //*  we use cookie for finding the current user team
   // console.log(currentUser.id);
 
+  //* we search for current student data in Student table, then get curretn team member then, save in tcon Sorting project
   Student.findById({ _id: currentUser.id })
     .then(async (currentSt) => {
       // console.log(currentSt);
 
       const currentTeam = currentSt.teamMembers[0].teamMembers;
-      // console.log("currentTEam");
-      // console.log(currentTeam);
+      console.log("currentTEam");
+      console.log(currentTeam);
 
-      //TODO: save user lsit to ConSortingProject db
-      const newConStPr = new ConSortingProject({
-        projectAuthors: req.body.projectAuthor,
-        projectMembers: currentTeam,
-      });
-      console.log(newConStPr);
+      //TODO: update all students collumn -> (conditiona-student-project)
+      Student.find({ email: currentTeam }).then((students) => {
+        console.log("current teammember");
+        // console.log(students);
 
-      await newConStPr
-        .save()
-        .then(() => {
-          console.log("student list of sorted project saved....");
-          res.redirect("/student/your-team");
-        })
-        .catch((err) => {
-          console.log(err);
+        students.forEach((st, index) => {
+          console.log("st.teamMembers[0].teamName");
+
+          console.log(st.teamMembers[0].teamName);
+          Student.findByIdAndUpdate(
+            { _id: st._id },
+            // {
+            //   "teamMembers.conProject.projectAuthors": req.body.projectAuthor,
+            //   "teamMembers.conProject.projectMembers": currentTeam,
+            // }
+            {
+              teamMembers: {
+                teamName: st.teamMembers[0].teamName,
+                teamMembers: currentTeam,
+
+                conProject: {
+                  projectAuthors: req.body.projectAuthor,
+                  projectMembers: currentTeam,
+                },
+                totalGrade: st.teamMembers[0].totalGrade,
+              },
+            }
+          ).then(() => {
+            console.log("update student");
+          });
         });
+
+        //TODO: update team collumn -> (team -> conditiona-student-project)
+        Team.findOneAndUpdate(
+          { teamMembers: currentTeam },
+          {
+            conProject: {
+              projectAuthors: req.body.projectAuthor,
+              projectMembers: currentTeam,
+            },
+          }
+        ).then(() => {
+          console.log("team constPr updated");
+          res.redirect("/student/your-team");
+        });
+      });
     })
     .catch((err) => {
       console.log(err);

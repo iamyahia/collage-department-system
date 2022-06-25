@@ -33,7 +33,7 @@
 
                 <%teams.forEach((team,index)=>{%>
                   <table class="table" style="background-color: antiquewhite;">
-                  <P><%= team.teamName %> </P>
+                  <P class="text-center"><%= team.teamName %> </P>
                   <thead>
                       <tr>
                           <th>No.</th>
@@ -42,8 +42,6 @@
                       </tr>
                   </thead>
                   <% team.teamMembers.forEach((fteam, findex) => {  %>
-                    
-  
                       <tbody>
                           <tr>
                               <td><%= findex %></td>
