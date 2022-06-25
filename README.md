@@ -1,3 +1,5 @@
+# updated
+
 # Welcome to Collage Department system repository!
 
 Hi! this project is communication between department and students for their final project,
@@ -52,7 +54,7 @@ please make sure to create **_top admin_** manually, because if you don't do tha
 - make POST request for this route: `/admin/top-admin/add-top-admin`
 - insert the following data in the body:
   {
-  ` "fullName" : "example", "email": "example@example.com", "password": "...", `
+  `"fullName" : "example", "email": "example@example.com", "password": "...",`
   }
 
 ### make sure to use [**_mongodb compass_**](https://www.mongodb.com/try/download/compass) to view your data

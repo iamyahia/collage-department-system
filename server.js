@@ -86,6 +86,7 @@ Student.find().then((students) => {
           console.log(team.totalGrade);
           totalGrade.push(team.totalGrade);
         });
+
         totalGrade.sort((a, b) => b - a);
 
         console.log("total grade");
