@@ -39,7 +39,7 @@ const Project = require("./models/project");
 const Student = require("./models/student");
 const Team = require("./models/team");
 
-//*  automation
+//?  automation
 
 /*
     TODO: check that all student have team ...
@@ -49,9 +49,6 @@ const Team = require("./models/team");
 Student.find().then((students) => {
   const isStConProject = []; //* if this array ===0, that mean all student have teamMembers, because if some student's does not have team, we push one data to this array, so if length of this array ==3 that we mean we have 3 students, that does not have team, ok ....
   students.forEach((student, index) => {
-    // console.log(student.teamMembers[0].conProject.length);
-    // console.log(student.id);
-
     //* we check students that have teamMember of not ...
     if (student.teamMembers.length === 0) {
       console.log("student.teamMembers.length is ZERROO");
@@ -69,9 +66,6 @@ Student.find().then((students) => {
           isTeamConProject.push(1);
         }
       });
-
-      // console.log("isTeamConProject");
-      // console.log(isTeamConProject.length);
       //*
       if (isTeamConProject.length === 0) {
         //TODO: PROGRAM THE AUTOMATION...
@@ -105,51 +99,5 @@ Student.find().then((students) => {
       }
     });
   }
-
-  // if(isConProject.length === 0){
-
-  // }
 });
-
-//TODO: check all team, have listed thier project or not ...
-// Team.find().then((teams) => {
-//   const isProject = []; //* if length of array == 0, mean we have some team that does not have project, if array = 3 mean we have 3 team that have project
-//   const teamGrades = []; //* push all grades of teams and sort it...
-
-//   teams.forEach((team, index) => {
-//     //* push team grade to variable
-//     teamGrades.push(team.totalGrade);
-
-//     if (!team.project) {
-//       isProject.push(1);
-//     }
-//   });
-
-//   console.log(teamGrades.sort((a, b) => b - a));
-//   //* Make sure that all team, have project...
-//   // if (isProject.length === 0) {
-//   //* check that all student have team
-//   Student.find().then((students) => {
-//     const isTeam = []; //* if length of array == 0, mean studentsdoes not have any team, if array = 3 mean we have 3 student that does not have team.
-
-//     students.forEach((student, index) => {
-//       //* check if student don't have team.
-//       if (student.teamMembers.length === 0) {
-//         //* this condition mean the actual student, doesnot have teamMmebers, so if it's have the length of array will be 1, arr=1.
-//         isTeam.push(1);
-//       }
-//       //*
-//     });
-
-//     //* isteam.length = 0 mean every student have team
-//     if (isTeam.length === 0) {
-//       console.log("helelo");
-//     }
-//     console.log(isTeam.length);
-//   });
-//   // }
-// });
-
-//
-
 app.listen(5000, console.log("Server Start on port: 5000"));
