@@ -1,211 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/index.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+
     <title>Students Group</title>
-</head>
-<body style="background-color: #B1D0E0;">
-    <section class="vh-100" style="background-color: #B1D0E0;">
-        <div class="container py-5 h-100 ">
+  </head>
+  <body style="background-color: #b1d0e0">
+    <section class="vh-100" style="background-color: #b1d0e0">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-xl-10">
+            <button
+              class="btn btn-primary btncolor adminentering"
+              style="margin: 1rem auto 3rem"
+              type="button"
+            >
+              <a
+                href="/admin/top-admin/student-form/student-list"
+                target="_blank"
+              >
+                Students list</a
+              >
+            </button>
 
-        
-          
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-10">
+            <button
+              class="btn btn-primary btncolor adminentering"
+              style="margin: 1rem auto 3rem"
+              type="button"
+            >
+              <a href="#"> Students group</a>
+            </button>
 
-                <button class="btn btn-primary btncolor adminentering" style="margin: 1rem auto 3rem;" type="button"><a href="/admin/top-admin/student-form/student-list" target="_blank"> Students list</a></button>
+            <div class="pagetitle">
+              <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                <b> Students Group List</b>
+              </h4>
+            </div>
 
-                <button class="btn btn-primary btncolor adminentering" style="margin: 1rem auto 3rem;" type="button"><a href="#" > Students group</a></button>
+            <div class="card" style="border-radius: 1rem; padding: 2rem">
+              <%teams.forEach((team,index)=>{%>
+              <table
+                class="table"
+                style="background-color: #edf4f8; border-radius: 10px"
+              >
+                <P class="text-center">Team name: <%= team.teamName %> </P>
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <!-- <th>First Name</th> -->
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <% team.teamMembers.forEach((fteam, findex) => { %>
+                <tbody>
+                  <tr>
+                    <td><%= findex %></td>
+                    <!-- <td>Clark</td> -->
+                    <td><%= fteam %></td>
+                  </tr>
+                </tbody>
 
-                
-      
-                <div class="pagetitle">
-                  <h4 class="fw-normal mb-3 pb-3" style="letter-spacing:1px ; "><b> Students Group List</b></h4>
-                </div>
-
-              <div class="card" style="border-radius: 1rem;">
-
-                <%teams.forEach((team,index)=>{%>
-                  <table class="table" style="background-color: antiquewhite;">
-                  <P class="text-center"><%= team.teamName %> </P>
-                  <thead>
-                      <tr>
-                          <th>No.</th>
-                          <th>First Name</th> 
-                          <th>Email</th>
-                      </tr>
-                  </thead>
-                  <% team.teamMembers.forEach((fteam, findex) => {  %>
-                      <tbody>
-                          <tr>
-                              <td><%= findex %></td>
-                              <td>Clark</td> 
-                              <td><%= fteam %></td>
-                          </tr>                  
-                      </tbody>
-                      
-                      <% }); %>
-                    </table>
-                    <br><br>
-                <%})%>
-                  
-
-                <!-- <table class="table" >
-                    <thead>
-                      <tr>
-                        <th scope="col"> </th>
-                        <th scope="col">No. </th>
-                        <th scope="col" class="email-row">Full Name</th>
-                        <th scope="col" class="email-row">Email</th>
-                        <th scope="col"> </th>
-                      </tr>
-                    </thead>
-                    <tbody> 
-
-                        <tr>
-                            <th scope="row" > </th>
-                            <td class="check">1</td>
-                            <td >
-                              <ul class="list-group">
-                                <li class="list-group-item">Rondik Hadi Abdulrahman</li>
-                                <li class="list-group-item">Zaynab Azad Khdir</li>
-                                <li class="list-group-item">Lana Muhammed Jawhar</li>
-                                <li class="list-group-item">Nour Muneer Ishaq</li>
-                              </ul>
-                            </td>
-                            <td>
-                              <ul class="list-group">
-                                <li class="list-group-item">rondikhadiabd@gmail.com</li>
-                                <li class="list-group-item">zaynabazad12@gmail.com</li>
-                                <li class="list-group-item">lanamuhammed@gmail.com</li>
-                                <li class="list-group-item">nourishaq@gmail.com</li>
-                              </ul>
-                            </td>
-                            <td class="icon text-center" style="position: relative;" > <img style="position: absolute; left: 0%; right: 0%; top: 30%;" src="/images/insert.png" alt="" data-bs-toggle="modal" data-bs-target="#edit-modal" width="20%"> <img style="position: relative;" > <img style="position: absolute; left: 10%; right: 0%; top: 30%;" class="bin " id="btn" data-bs-toggle="modal" data-bs-target="#rreg-modal" src="/images/bin.png" alt="" width="20%"> </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" > </th>
-                            <td class="check">2</td>
-                            <td >
-                              <ul class="list-group">
-                                <li class="list-group-item">Lade Naaman Hamadamin</li>
-                                <li class="list-group-item">Shad Mustafa Aziz</li>
-                                <li class="list-group-item">Bnyat Ismail Awez</li>
-                                <li class="list-group-item">Rayan Hadi Abdulrahman</li>
-                              </ul>
-                            </td>
-                            <td>
-                              <ul class="list-group">
-                                <li class="list-group-item">ladenaaman@gmail.com</li>
-                                <li class="list-group-item">shadaziz12@gmail.com</li>
-                                <li class="list-group-item">bnyatismailawez12@gmail.com</li>
-                                <li class="list-group-item">rayanhadi09@gmail.com</li>
-                              </ul>
-                            </td>
-                            <td class="icon text-center" style="position: relative;" > <img style="position: absolute; left: 0%; right: 0%; top: 30%;" src="/images/insert.png" alt="" data-bs-toggle="modal" data-bs-target="#edit-modal" width="20%"> <img style="position: relative;" > <img style="position: absolute; left: 10%; right: 0%; top: 30%;" class="bin " id="btn" data-bs-toggle="modal" data-bs-target="#rreg-modal" src="/images/bin.png" alt="" width="20%"> </td>
-                        </tr>
-                    </tbody> 
-                    
-                  </table>
-                 -->
-                  <br>
-                  <br>
-
-                 
-             
-              </div>
-
-              
-              <button class="btn btn-primary btncolor " style="margin: 3rem 0; float:right;" type="button">Done</button>
-               
+                <% }); %>
+              </table>
+              <br />
+              <%})%>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-
-
-      <div class="modal fade" id="rreg-modal" tabindex="-1" aria-labelledby="modal-title"
-      aria-hidden="true">
-       <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                 <h5 class="modal-title " id="modal-title">Delete a member</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-  
-              <input type="text" class="form-control" id="modal-fullname" placeholder="Enter the member number">
-              
-             </div>
-              <div class="modal-footer">
-                <button class="btn btn-primary btncolor" id="btn" data-bs-toggle="modal" data-bs-target="#reg-modal" >Delete</button>
-             </div>
+    <div
+      class="modal fade"
+      id="rreg-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Delete a member</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-       </div>
-      </div>
-
-
-      <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title"
-aria-hidden="true">
- <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title " id="modal-title">Delete a member</h5>
-           <button type="button" class="btn-close" data-bs-dismiss="modal"
-          aria-label="Close"></button>
-       </div>
-       <div class="modal-body">
-        <p>
-          Are you sure to delete this row ?
-        </p>
-        
-       </div>
-      
-        <div class="modal-footer">
-          <button class="btn btn-primary btncolor">Yes</button>
-       </div>
-    </div>
- </div>
-</div>
-
-
-
-
-<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="modal-title"
-aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-         <h5 class="modal-title" id="modal-title">Add new Student</h5>
-         <button type="button" class="btn-close" data-bs-dismiss="modal"
-         aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-  
-         <label for="modal-fullname" class="form-label"></label>
-         <input type="text" class="form-control" id="modal-fullname" placeholder="Enter Full name">
-         <label for="modal-email" class="form-label"></label>
-         <input type="email" class="form-control" id="modal-email" placeholder="Enter the email address">
-         
+          <div class="modal-body">
+            <input
+              type="text"
+              class="form-control"
+              id="modal-fullname"
+              placeholder="Enter the member number"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-primary btncolor"
+              id="btn"
+              data-bs-toggle="modal"
+              data-bs-target="#reg-modal"
+            >
+              Delete
+            </button>
+          </div>
         </div>
-      <div class="modal-footer">
-         <button class="btn btn-primary btncolor">Add</button>
       </div>
     </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-      <script src="https://use.fontawesome.com/96f1c5daf2.js"></script>
-</body>
+    <div
+      class="modal fade"
+      id="reg-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Delete a member</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure to delete this row ?</p>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-primary btncolor">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="edit-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Add new Student</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="modal-fullname" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="modal-fullname"
+              placeholder="Enter Full name"
+            />
+            <label for="modal-email" class="form-label"></label>
+            <input
+              type="email"
+              class="form-control"
+              id="modal-email"
+              placeholder="Enter the email address"
+            />
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btncolor">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://use.fontawesome.com/96f1c5daf2.js"></script>
+  </body>
 </html>
